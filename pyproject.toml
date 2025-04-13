@@ -4,7 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "test-minlor"
-authors = ["Minlor <40441731+minlor@users.noreply.github.com>"]
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
