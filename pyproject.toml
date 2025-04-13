@@ -11,4 +11,4 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-minlor-test = "src.hello:main"
+test-minlor = "src.hello:main"
