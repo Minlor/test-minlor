@@ -11,4 +11,4 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-lumisync = "minlor-test.minlor-test:main"
+minlor-test = "src.hello:main"
