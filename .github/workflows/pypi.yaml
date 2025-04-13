@@ -21,8 +21,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: ./test-minlor
 
       - uses: actions/setup-python@v5
         with:
@@ -35,21 +33,25 @@ jobs:
 
       - name: Debug directory
         run: ls -R
+        working-directory: ./test-minlor
+
+      - name: Install build dependencies
+        run: python -m pip install build
+        working-directory: ./test-minlor
 
       - name: Build release distributions
-        run: |
-          # NOTE: put your own distribution build steps here.
-          python -m pip install build
-          python -m build
+        run: python -m build
+        working-directory: ./test-minlor
 
       - name: Install dependencies
         run: poetry install --sync --no-interaction
+        working-directory: ./test-minlor
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
           name: release-dists
-          path: dist/
+          path: test-minlor/dist/
 
   pypi-publish:
     runs-on: ubuntu-latest
